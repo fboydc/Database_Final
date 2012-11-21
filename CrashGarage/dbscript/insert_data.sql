@@ -1,0 +1,1 @@
+insert into users values('jz570129@sju.edu', 'password','Jing', 'Zhao');
