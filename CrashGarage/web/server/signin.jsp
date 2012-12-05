@@ -31,6 +31,7 @@
        } else {
            response.setStatus(response.SC_MOVED_TEMPORARILY);
            response.setHeader("Location", "user.jsp");
+           session.putValue("username",uname);
        }
     }
 

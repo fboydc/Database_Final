@@ -3,6 +3,8 @@ drop table images;
 drop table requests;
 drop table cars;
 drop table repair_jobs;
+drop table user_address;
+drop table address;
 drop table users;
 
 create table users
@@ -11,7 +13,27 @@ create table users
     password varchar(20),
     fname varchar(10),
     lname varchar(10),
-    primary key(username)
+    role varchar(10),
+    primary key(username),
+    constraint role_constraint check(role in ('customer','worker'))
+);
+
+create table address(
+	address_id	number,
+	address1	varchar(100),
+	address2	varchar(100),
+	city		varchar(40),
+	country		varchar(40),
+	phone		varchar(20),
+	primary key(address_id)
+);
+
+create table user_address(
+	username	varchar(50),
+	address_id	number,
+	primary key(username,address_id),
+	foreign key(username) references users(username),
+	foreign key(address_id) references address(address_id)
 );
 
 create table repair_jobs
@@ -46,8 +68,10 @@ create table requests
 	rid int,
 	username varchar(50),
 	platenumber varchar(10),
+	personincharge varchar(50),
 	foreign key (rid) references repair_jobs(rid),
 	foreign key (username) references users(username),
+	foreign key (personincharge) references users(username),
 	foreign key (platenumber) references cars(platenumber)
 );
 
