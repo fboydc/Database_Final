@@ -23,40 +23,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form id="addcarform" action="" method="post" >
+    <form id="addcarform" action="server/regCar.jsp" method="post" >
 		<table id="" align="center" cellpadding="5px">
 			<tr>
 				<td><label>VIN <span style="color:red">*</span></label></td>
-				<td><input id="" type="text" required="required" class="text" name="vin" size="30" maxlength="30"/></td>
+				<td><input id="" type="text" required="required" class="text" name="VIN" size="30" maxlength="30"/></td>
 			</tr>
 			<tr>
-				<td><label>Type<span style="color:red">*</span></label></td>
-				<td>  <select id="submittype">
-                                        <option value="suv">SUV</option> 
+				<td><label>Make<span style="color:red">*</span></label></td>
+				<td><input id="" type="text" required="required" class="text" name="make" size="30" maxlength="30"/></td>
+			</tr>
+			<tr>
+				<td><label>Category<span style="color:red">*</span></label></td>
+				<td>  <select id="submittype" name="category">
+                                        <option value="SUV">SUV</option> 
                                         <option value="sedan">Sedan</option>
 										<option value="van">VAN</option>
-										<option value="Pickup">Pickup</option>
+										<option value="pickup">Pickup</option>
                                     </select>
                                     </td>
 			</tr>
 			
 			<tr>
-				<td><label >Name <span style="color:red">*</span></label></td>
+				<td><label >Model <span style="color:red">*</span></label></td>
 				<td><input id="" type="text" placeholder="2004 Lexus RX 330 AWD" required="required" 
-					class="text" name="name" size="30" maxlength="30" /></td>
+					class="text" name="model" size="30" maxlength="30" /></td>
 			</tr>
 			<tr>
 				<td><label >Purchase Date <span style="color:red">*</span></label></td>
-				<td><input id="" type="date" required="required" class="" size="30" maxlength="16"/></td>
+				<td><input id="" type="date" name="purchasedate" required="required" class="" size="30" maxlength="16"/></td>
 			</tr>
 			<tr>
 				<td><label >Plate<span style="color:red">*</span></label></td>
-				<td><input id="" type="text" required="required" class="" size="30" maxlength="16" /></td>
+				<td><input id="" type="text" name="plate" required="required" class="" size="30" maxlength="16" /></td>
 			</tr>
+			<!--  
 			<tr>
 				<td><label >Location<span style="color:red">*</span></label></td>
 				<td><input id="" type="text" required="required" class="" size="30" maxlength="16" /></td>
 			</tr>
+			-->
 			
 			<tr>
                 <td></td>

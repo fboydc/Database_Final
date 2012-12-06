@@ -12,7 +12,14 @@
 		<ul>
 			<li><a href="user.jsp" target="main">Basic Information</a></li>
 			<li><a href="address.jsp" target="main">Address</a></li>
-			<li><a href="addCar.jsp" target="main">Car</a></li>
+			<li><a href="showMyCar.jsp" target="main">Car</a>
+				<ul>
+					<li><a href="addCar.jsp" target="main">Add Car</a></li>
+					<li><a href="showMyCar.jsp" target="main">List Car</a></li>
+				</ul>
+			
+			</li>
+			
 		</ul>
 	</li>
 	<li>Repair Job

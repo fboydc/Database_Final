@@ -6,6 +6,7 @@ drop table repair_jobs;
 drop table user_address;
 drop table address;
 drop table users;
+drop table user_car;
 
 create table users
 (
@@ -93,3 +94,16 @@ create table cost_details
 	rid int,
 	foreign key(rid) references repair_jobs(rid)
 );
+
+create table user_car
+(
+	username varchar(50),
+	platenumber varchar(10),
+	foreign key(username) references users(username),
+	foreign key(platenumber) references cars(platenumber)
+	
+);
+
+
+
+
