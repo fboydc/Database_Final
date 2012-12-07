@@ -56,7 +56,8 @@ create table repair_jobs
 	completetime date,
 	estimateddays int,
 	primary key (rid),
-	constraint status_constraint check(status in ('new','processing','completed'))
+	constraint status_constraint check(status in ('new','processing','completed')),
+	constraint category_constraint check(category in('brake', 'transmission', 'engine', 'collision', 'body'))
 );
 drop sequence REPAIR_SEQ;
 create sequence REPAIR_SEQ
@@ -74,7 +75,7 @@ create table cars
 	image varchar(100),
 	vin varchar(50),
 	cartype varchar(10),
-	purchasedate date,
+	year date,
 	primary key(platenumber),
 	constraint cartype_constraint check(cartype in ('SUV', 'sedan', 'van', 'pickup'))
 );
@@ -111,9 +112,9 @@ cache 20;
 create table cost_details
 (
 	item varchar(30),
+	description varchar(100),
 	unitprice float,
 	amount float,
-	totalprice float,
 	rid int,
 	foreign key(rid) references repair_jobs(rid)
 );
