@@ -1,12 +1,13 @@
 drop table cost_details;
 drop table images;
 drop table requests;
+drop table user_car;
 drop table cars;
 drop table repair_jobs;
 drop table user_address;
 drop table address;
 drop table users;
-drop table user_car;
+
 
 create table users
 (
@@ -28,6 +29,13 @@ create table address(
 	phone		varchar(20),
 	primary key(address_id)
 );
+drop sequence ADDRESS_SEQ;
+create sequence ADDRESS_SEQ
+minvalue 1
+maxvalue 999999999999999999
+start with 1
+increment by 1
+cache 20;
 
 create table user_address(
 	username	varchar(50),
@@ -50,6 +58,13 @@ create table repair_jobs
 	primary key (rid),
 	constraint status_constraint check(status in ('new','processing','completed'))
 );
+drop sequence REPAIR_SEQ;
+create sequence REPAIR_SEQ
+minvalue 1
+maxvalue 999999999999999999
+start with 1
+increment by 1
+cache 20;
 
 create table cars
 (
@@ -85,6 +100,14 @@ create table images
 	foreign key (rid) references repair_jobs(rid)
 );
 
+drop sequence IMAGE_SEQ;
+create sequence IMAGE_SEQ
+minvalue 1
+maxvalue 999999999999999999
+start with 1
+increment by 1
+cache 20;
+
 create table cost_details
 (
 	item varchar(30),
@@ -101,7 +124,6 @@ create table user_car
 	platenumber varchar(10),
 	foreign key(username) references users(username),
 	foreign key(platenumber) references cars(platenumber)
-	
 );
 
 
